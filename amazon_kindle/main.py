@@ -1,14 +1,14 @@
-from amazon_kindle.Searchhistory import database_connect as Page1DB
-from amazon_kindle.Wishlist import database_connect as Page2DB, WishlistGenerator
-from amazon_kindle.Bestsellers import database_connect as Page3DB
-from amazon_kindle.Readinghistory import database_connect as Page4DB
+from Searchhistory import database_connect as Page1DB
+from Wishlist import database_connect as Page2DB, WishlistGenerator
+from Bestsellers import database_connect as Page3DB
+from Readinghistory import database_connect as Page4DB
 
 def display_user_history(user_id):
     sql_library = Page1DB()
     user_history = sql_library.user_history(user_id)
     print("User History for user", user_id, ":")
     for book in user_history:
-        print("- Title:", book.title)
+        print("  Title:", book.title)
         print("  Author:", book.author)
         print("  Genre:", book.genre)
         print("  Rating:", book.rating)
@@ -43,6 +43,8 @@ def display_started_books(user_id):
         print("  Author:", book.author)
         print("  Genre:", book.genre)
 
+#Runnable method 
+'''The if __name__ == "__main__": block is a common Python idiom that checks whether the script is being run as the main program or if it's being imported as a module into another script.'''
 if __name__ == "__main__":
     user_id = "123"  # Example user_id
     while True:
